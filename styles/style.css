@@ -1,5 +1,339 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* Основные стили проекта. Это стили для темы, которую вы верстаете первой (тёмной). */
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+    min-block-size: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: var(--font-size-main);
+    line-height: var(--line-height-main);
+
+    background-color: var(--bg-color);
+    background-image: var(--page-bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    padding-inline: var(--page-padding-inline);
+    padding-block: var(--page-padding-block);
+}
+
+/* ---------- ШАПКА ---------- */
+
+.header {
+    position: relative;
+    min-block-size: 100vh;
+    padding-block-start: 20px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    align-items: start;
+}
+
+/* переключатель темы */
+
+.header__theme-menu {
+    justify-self: end;
+}
+
+.header__theme-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header__theme-menu-button {
+    inline-size: 70px;
+    padding-block: 4px;
+    border: 1px solid transparent;
+    background: none;
+    text-transform: lowercase;
+    cursor: pointer;
+
+    color: var(--menu-color);
+}
+
+.header__theme-menu-button_active {
+    border-color: currentColor;
+    pointer-events: none;
+}
+
+.header__theme-menu-button:focus-visible {
+    outline: none;
+    border-block-end: 1px solid currentColor;
+}
+
+.header__theme-menu-button:not(.header__theme-menu-button_active):hover {
+    border-color: var(--menu-border-color-hover);
+}
+
+/* декоративные уголки */
+
+.decorated-zone {
+    position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+    content: "";
+    position: absolute;
+    inline-size: 25px;
+    block-size: 25px;
+}
+
+.decorated-zone::before {
+    inset-block-start: 10px;
+    inset-inline-end: 10px;
+    border-block-start: 1px solid var(--corner-color);
+    border-inline-end: 1px solid var(--corner-color);
+}
+
+.decorated-zone::after {
+    inset-block-end: 10px;
+    inset-inline-start: 10px;
+    border-block-end: 1px solid var(--corner-color);
+    border-inline-start: 1px solid var(--corner-color);
+}
+
+/* декоративная надпись REC — по умолчанию для тёмной темы,
+   в светлой скроем в light.css */
+
+.rec {
+    position: absolute;
+    inset-block-start: 10px;
+    inset-inline-end: 48px;
+
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.rec::after {
+    content: "";
+    display: inline-block;
+    inline-size: 9px;
+    block-size: 9px;
+    margin-inline-start: 10px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    box-shadow: 0 0 4px var(--accent-color);
+}
+
+/* ---------- ОБЩИЕ ЭЛЕМЕНТЫ ДЛЯ ОСНОВНОГО КОНТЕНТА ---------- */
+
+.main {
+    margin-block-start: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.section {
+    display: grid;
+    gap: 20px;
+}
+
+.section__title {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.section__title-note {
+    display: block;
+    font-weight: 400;
+}
+
+/* обёртка карточек в секции */
+
+.section__content {
+    display: grid;
+    gap: 20px;
+}
+
+/* карточки */
+
+.content-card {
+    display: grid;
+    gap: 10px;
+}
+
+.content-card__title {
+    font-weight: 700;
+}
+
+.content-card__title_accent {
+    font-weight: 400;
+}
+
+/* розовая подложка под заголовками и отдельными блоками */
+
+.title-decor {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding-inline: 10px;
+    padding-block: 4px;
+}
+
+/* текст */
+
+.content-card__text {
+    margin: 0;
+}
+
+/* ---------- СПЕЦИФИКА СЕКЦИЙ ---------- */
+
+/* первая секция — две карточки под заголовком */
+
+.section-intro__content {
+    grid-auto-rows: minmax(min-content, max-content);
+}
+
+/* вторая секция — три карточки, на десктопе в одну строку */
+
+.section-reasons__content {
+    grid-auto-rows: minmax(min-content, max-content);
+}
+
+/* третья секция — длинный заголовок слева, пачка карточек справа */
+
+.section-tips__content {
+    grid-auto-rows: minmax(min-content, max-content);
+}
+
+/* ---------- ГАЛЕРЕЯ ---------- */
+
+.section-gallery__grid {
+    display: grid;
+    gap: 10px;
+}
+
+.gallery__item {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---------- ФУТЕР ---------- */
+
+.footer {
+    position: relative;
+    min-block-size: 100vh;
+    display: grid;
+    place-items: center;
+    padding-block: 20px;
+}
+
+.footer__title {
+    font-size: clamp(3rem, 2.3rem + 2vw, 4.5rem);
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 4px 4px 0 var(--accent-soft-color);
+}
+
+/* ---------- АДАПТИВ ---------- */
+
+@media (min-width: 768px) {
+    .page {
+        padding-inline: 20px;
+    }
+
+    .header__theme-menu-list {
+        flex-direction: row;
+    }
+
+    .main {
+        margin-block-start: 60px;
+        gap: 60px;
+    }
+
+    .section {
+        grid-template-columns: minmax(0, 236px) minmax(0, 1fr);
+    }
+
+    .section__title {
+        max-inline-size: 240px;
+    }
+
+    .section__content {
+        grid-column: 2 / -1;
+    }
+
+    .section-reasons__content {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .section-tips__content {
+        grid-template-columns: 1fr;
+    }
+
+    .section-gallery__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* на планшете последняя картинка галереи во всю ширину */
+    .section-gallery__grid .gallery__item:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1024px) {
+    .page {
+        padding-inline: 40px;
+    }
+
+    .header {
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .main {
+        margin-block-start: 80px;
+        gap: 80px;
+    }
+
+    .section {
+        column-gap: 20px;
+    }
+
+    .section-intro__content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-reasons__content {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .section-tips__content {
+        grid-template-columns: 1fr;
+    }
+
+    .section-gallery__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* сетка галереи под макет 1024 */
+
+    .section-gallery__grid .gallery__item:nth-child(1) {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+    }
+
+    .section-gallery__grid .gallery__item:nth-child(2) {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+    }
+
+    .section-gallery__grid .gallery__item:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .section-gallery__grid .gallery__item:nth-child(4) {
+        grid-column: 1;
+        grid-row: 2 / span 2;
+    }
+
+    .section-gallery__grid .gallery__item:nth-child(5) {
+        grid-column: 2 / span 2;
+        grid-row: 3;
+    }
 }
