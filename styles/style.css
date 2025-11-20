@@ -1,10 +1,8 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой (тёмной). */
-
 .page {
     min-block-size: 100vh;
     margin: 0;
     color: var(--text-color);
-    font-family: var(--font-main);
+    font-family: var(--font-main), monospace;
     font-size: var(--font-size-main);
     line-height: var(--line-height-main);
 
@@ -19,21 +17,22 @@
     padding-block: var(--page-padding-block);
 }
 
-/* ---------- ШАПКА ---------- */
+h2 {
+    word-spacing: var(--word-spacing-main);
+}
 
 .header {
     position: relative;
-    min-block-size: 100vh;
-    padding-block-start: 20px;
     display: grid;
     grid-template-rows: auto 1fr auto;
     align-items: start;
+
 }
 
-/* переключатель темы */
 
 .header__theme-menu {
     justify-self: end;
+    margin-block-start: 75px;
 }
 
 .header__theme-menu-list {
@@ -67,7 +66,23 @@
     border-color: var(--menu-border-color-hover);
 }
 
-/* декоративные уголки */
+.header__title {
+    margin: 0;
+    margin-block-start: 65px;
+    color: var(--title-color);
+    font-weight: 700;
+    text-transform: lowercase;
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    line-height: 0.83;
+    text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__description {
+    font-weight: bold;
+    word-spacing: var(--word-spacing-main);
+    margin-block-start: 55px;
+    margin-block-end: 55px;
+}
 
 .decorated-zone {
     position: relative;
@@ -82,28 +97,23 @@
 }
 
 .decorated-zone::before {
-    inset-block-start: 10px;
-    inset-inline-end: 10px;
+    inset-block-start: 0;
+    inset-inline-end: 0;
     border-block-start: 1px solid var(--corner-color);
     border-inline-end: 1px solid var(--corner-color);
 }
 
 .decorated-zone::after {
-    inset-block-end: 10px;
-    inset-inline-start: 10px;
+    inset-block-end: 0;
+    inset-inline-start: 0;
     border-block-end: 1px solid var(--corner-color);
     border-inline-start: 1px solid var(--corner-color);
 }
 
-/* декоративная надпись REC — по умолчанию для тёмной темы,
-   в светлой скроем в light.css */
 
 .rec {
-    position: absolute;
-    inset-block-start: 10px;
-    inset-inline-end: 48px;
-
-    font-size: 14px;
+    justify-self: end;
+    font-size: 18px;
     text-transform: uppercase;
 }
 
@@ -118,7 +128,6 @@
     box-shadow: 0 0 4px var(--accent-color);
 }
 
-/* ---------- ОБЩИЕ ЭЛЕМЕНТЫ ДЛЯ ОСНОВНОГО КОНТЕНТА ---------- */
 
 .main {
     margin-block-start: 40px;
@@ -135,6 +144,7 @@
 .section__title {
     color: var(--accent-color);
     font-weight: 700;
+    font-size: 18px;
 }
 
 .section__title-note {
@@ -142,14 +152,14 @@
     font-weight: 400;
 }
 
-/* обёртка карточек в секции */
-
 .section__content {
     display: grid;
     gap: 20px;
 }
 
-/* карточки */
+.section-gallery {
+    gap: 10px
+}
 
 .content-card {
     display: grid;
@@ -164,42 +174,30 @@
     font-weight: 400;
 }
 
-/* розовая подложка под заголовками и отдельными блоками */
 
 .title-decor {
     background-color: var(--accent-color);
     color: var(--bg-color);
-    padding-inline: 10px;
-    padding-block: 4px;
+    padding-inline: 0;
+    padding-block: 0;
 }
 
-/* текст */
 
 .content-card__text {
     margin: 0;
 }
 
-/* ---------- СПЕЦИФИКА СЕКЦИЙ ---------- */
-
-/* первая секция — две карточки под заголовком */
-
 .section-intro__content {
     grid-auto-rows: minmax(min-content, max-content);
 }
-
-/* вторая секция — три карточки, на десктопе в одну строку */
 
 .section-reasons__content {
     grid-auto-rows: minmax(min-content, max-content);
 }
 
-/* третья секция — длинный заголовок слева, пачка карточек справа */
-
 .section-tips__content {
     grid-auto-rows: minmax(min-content, max-content);
 }
-
-/* ---------- ГАЛЕРЕЯ ---------- */
 
 .section-gallery__grid {
     display: grid;
@@ -213,21 +211,20 @@
     display: block;
 }
 
-/* ---------- ФУТЕР ---------- */
-
 .footer {
+    margin-block-start: 50px;
     position: relative;
-    min-block-size: 100vh;
+    min-height: 668px;
     display: grid;
     place-items: center;
     padding-block: 20px;
 }
 
 .footer__title {
-    font-size: clamp(3rem, 2.3rem + 2vw, 4.5rem);
+    font-size: clamp(7.25rem, 2.3rem + 2vw, 4.5rem);
     font-weight: 700;
-    color: var(--accent-color);
-    text-shadow: 4px 4px 0 var(--accent-soft-color);
+    color: var(--title-color);
+    text-shadow: 2px 2px 0 var(--accent-color);
 }
 
 /* ---------- АДАПТИВ ---------- */
@@ -239,6 +236,12 @@
 
     .header__theme-menu-list {
         flex-direction: row;
+    }
+
+    .header__title {
+        /* формула для ПЛАНШЕТА и ДЕСКТОПА */
+        font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+        margin-block-start: 0; /* на больших экранах заголовок чуть выше */
     }
 
     .main {

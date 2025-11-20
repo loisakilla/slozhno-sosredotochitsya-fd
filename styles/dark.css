@@ -9,9 +9,8 @@
     --bg-color: #000028;
     --page-bg-image: url("../images/cover-image-dark.png");
     --text-color: #f1b2ce;
-    --title-color: #fff1f7;
+    --title-color: #DB00FF;
     --accent-color: #ff0070;
-    --accent-soft-color: #ff8dcb;
     --menu-color: #ff0070;
     --menu-border-color-hover: rgba(255, 0, 112, 0.4);
     --corner-color: #ff0070;
@@ -22,9 +21,8 @@
         --bg-color: #000028;
         --page-bg-image: url("../images/cover-image-dark.png");
         --text-color: #f1b2ce;
-        --title-color: #fff1f7;
+        --title-color: #DB00FF;
         --accent-color: #ff0070;
-        --accent-soft-color: #ff8dcb;
         --menu-color: #ff0070;
         --menu-border-color-hover: rgba(255, 0, 112, 0.4);
         --corner-color: #ff0070;
