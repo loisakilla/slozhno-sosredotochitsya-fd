@@ -11,7 +11,7 @@
     --title-color: #ffc2e6;
     --accent-color: #ff8dcb;
     --menu-color: #353430;
-    --menu-border-color-hover: rgba(53, 52, 48, 0.4);
+    --menu-border-color-hover: #35343066;
     --corner-color: #353430;
 }
 
@@ -29,7 +29,7 @@
         --title-color: #ffc2e6;
         --accent-color: #ff8dcb;
         --menu-color: #353430;
-        --menu-border-color-hover: rgba(53, 52, 48, 0.4);
+        --menu-border-color-hover: #35343066;
         --corner-color: #353430;
     }
 

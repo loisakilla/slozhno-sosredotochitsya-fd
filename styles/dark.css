@@ -12,7 +12,7 @@
     --title-color: #DB00FF;
     --accent-color: #ff0070;
     --menu-color: #ff0070;
-    --menu-border-color-hover: rgba(255, 0, 112, 0.4);
+    --menu-border-color-hover: #FF007066;
     --corner-color: #ff0070;
 }
 
@@ -24,7 +24,7 @@
         --title-color: #DB00FF;
         --accent-color: #ff0070;
         --menu-color: #ff0070;
-        --menu-border-color-hover: rgba(255, 0, 112, 0.4);
+        --menu-border-color-hover: #FF007066;
         --corner-color: #ff0070;
     }
 }
