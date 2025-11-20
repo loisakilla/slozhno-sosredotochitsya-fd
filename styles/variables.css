@@ -21,3 +21,8 @@
     /* Фоновой рисунок страницы */
     --page-bg-image: url("../images/cover-image-dark.png");
 }
+
+body {
+    margin: 0;
+    padding: 0;
+}
