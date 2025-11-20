@@ -17,10 +17,6 @@
     padding-block: var(--page-padding-block);
 }
 
-h2 {
-    word-spacing: var(--word-spacing-main);
-}
-
 .header {
     position: relative;
     display: grid;
@@ -81,7 +77,6 @@ h2 {
 
 .header__description {
     font-weight: bold;
-    word-spacing: var(--word-spacing-main);
     grid-row: 6;
 }
 
@@ -111,6 +106,26 @@ h2 {
     border-inline-start: 1px solid var(--corner-color);
 }
 
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    text-shadow: 2px 2px 0 var(--accent-color);
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+
+a:hover {
+    text-decoration: none;
+    border-bottom-color: currentColor;
+}
+
+a:focus-visible {
+    outline: 1px solid var(--text-color);
+    text-shadow:
+            2px 2px 0 var(--accent-color),
+            0 0 4px var(--accent-color);
+}
 
 .rec {
     position: absolute;
@@ -192,6 +207,10 @@ h2 {
     margin: 0;
 }
 
+.section-tips__card .content-card__title:first-child {
+    margin-block-end: 10px;
+}
+
 .section-intro__content {
     grid-auto-rows: minmax(min-content, max-content);
 }
@@ -252,12 +271,13 @@ h2 {
 
     .header__title {
         grid-row: 4;
+        text-indent: -20px;
         font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     }
 
     .header__description {
         grid-row: 6;
-        max-inline-size: 50ch;
+        max-inline-size: 364px;
         justify-self: end;
     }
 
@@ -294,7 +314,7 @@ h2 {
 
     .section-gallery__grid {
         display: grid;
-        grid-template-columns: 229px 230px 229px;
+        grid-template-columns: minmax(229px, 1fr) minmax(230px, 1fr) minmax(229px, 1fr);
         gap: 20px;
     }
 
@@ -353,12 +373,39 @@ h2 {
 
     .header__title {
         grid-row: 4;
+        text-indent: -20px;
     }
 
     .header__description {
         grid-row: 6;
         justify-self: end;
+        max-inline-size: 491px;
+    }
 
+    .section.section-reasons {
+        grid-template-columns: 1fr;
+    }
+
+    .section.section-reasons .section__title {
+        max-inline-size: none;
+    }
+
+    .section-reasons__content {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: 20px;
+    }
+
+    .content-card__title.title-decor {
+        height: 23px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .section-gallery__grid {
+        grid-template-columns: minmax(315px, 1fr) minmax(315px, 1fr) minmax(314px, 1fr);
+        gap: 20px;
     }
 
 }
