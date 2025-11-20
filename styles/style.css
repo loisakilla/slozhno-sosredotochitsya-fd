@@ -70,7 +70,7 @@
     color: var(--title-color);
     font-weight: 700;
     text-transform: lowercase;
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     line-height: 0.83;
     text-shadow: 4px 4px 0 var(--accent-color);
 }
@@ -238,14 +238,14 @@ a:focus-visible {
 .footer {
     margin-block-start: 50px;
     position: relative;
-    min-height: 668px;
+    min-height: 100vh;
     display: grid;
     place-items: center;
     padding-block: 20px;
 }
 
 .footer__title {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     font-weight: 700;
     color: var(--title-color);
     text-shadow: 2px 2px 0 var(--accent-color);
@@ -260,7 +260,7 @@ a:focus-visible {
 
     .header {
         min-height: 1024px;
-        grid-template-rows: 192px auto 173px auto 162px auto;
+        grid-template-rows: 182px auto 173px auto 162px auto;
     }
 
     .header__theme-menu {
@@ -272,7 +272,6 @@ a:focus-visible {
     .header__title {
         grid-row: 4;
         text-indent: -20px;
-        font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     }
 
     .header__description {
@@ -343,8 +342,7 @@ a:focus-visible {
         grid-row: 3 / 4;
     }
     .footer {
-        min-height: 1024px;
-        font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+        min-height: 100vh;
     }
 }
 
