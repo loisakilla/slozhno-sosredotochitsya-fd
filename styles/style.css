@@ -24,15 +24,17 @@ h2 {
 .header {
     position: relative;
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    align-items: start;
-
+    grid-template-columns: 1fr;
+    grid-template-rows: 75px auto 65px auto 55px auto;
+    align-content: start;
+    min-height: 668px;
 }
 
 
+
 .header__theme-menu {
+    grid-row: 2;
     justify-self: end;
-    margin-block-start: 75px;
 }
 
 .header__theme-menu-list {
@@ -43,7 +45,7 @@ h2 {
 
 .header__theme-menu-button {
     inline-size: 70px;
-    padding-block: 4px;
+    padding: 0;
     border: 1px solid transparent;
     background: none;
     text-transform: lowercase;
@@ -68,7 +70,7 @@ h2 {
 
 .header__title {
     margin: 0;
-    margin-block-start: 65px;
+    grid-row: 4;
     color: var(--title-color);
     font-weight: 700;
     text-transform: lowercase;
@@ -80,8 +82,7 @@ h2 {
 .header__description {
     font-weight: bold;
     word-spacing: var(--word-spacing-main);
-    margin-block-start: 55px;
-    margin-block-end: 55px;
+    grid-row: 6;
 }
 
 .decorated-zone {
@@ -112,9 +113,13 @@ h2 {
 
 
 .rec {
-    justify-self: end;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
     font-size: 18px;
     text-transform: uppercase;
+    color: var(--menu-color);
+    padding-right: 9px;
 }
 
 .rec::after {
@@ -125,7 +130,7 @@ h2 {
     margin-inline-start: 10px;
     border-radius: 50%;
     background-color: var(--accent-color);
-    box-shadow: 0 0 4px var(--accent-color);
+    box-shadow: 0 0 4px 2px var(--accent-color);
 }
 
 
@@ -221,122 +226,139 @@ h2 {
 }
 
 .footer__title {
-    font-size: clamp(7.25rem, 2.3rem + 2vw, 4.5rem);
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
     font-weight: 700;
     color: var(--title-color);
     text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-/* ---------- АДАПТИВ ---------- */
-
 @media (min-width: 768px) {
+
     .page {
         padding-inline: 20px;
-    }
-
-    .header__theme-menu-list {
-        flex-direction: row;
-    }
-
-    .header__title {
-        /* формула для ПЛАНШЕТА и ДЕСКТОПА */
-        font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-        margin-block-start: 0; /* на больших экранах заголовок чуть выше */
-    }
-
-    .main {
-        margin-block-start: 60px;
-        gap: 60px;
-    }
-
-    .section {
-        grid-template-columns: minmax(0, 236px) minmax(0, 1fr);
-    }
-
-    .section__title {
-        max-inline-size: 240px;
-    }
-
-    .section__content {
-        grid-column: 2 / -1;
-    }
-
-    .section-reasons__content {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .section-tips__content {
-        grid-template-columns: 1fr;
-    }
-
-    .section-gallery__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    /* на планшете последняя картинка галереи во всю ширину */
-    .section-gallery__grid .gallery__item:last-child {
-        grid-column: 1 / -1;
-    }
-}
-
-@media (min-width: 1024px) {
-    .page {
-        padding-inline: 40px;
+        padding-block: 20px;
     }
 
     .header {
-        grid-template-rows: auto 1fr auto;
+        min-height: 1024px;
+        grid-template-rows: 192px auto 173px auto 162px auto;
+    }
+
+    .header__theme-menu {
+        grid-row: 2;
+        justify-self: end;
+        align-self: start;
+    }
+
+    .header__title {
+        grid-row: 4;
+        font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    }
+
+    .header__description {
+        grid-row: 6;
+        max-inline-size: 50ch;
+        justify-self: end;
     }
 
     .main {
         margin-block-start: 80px;
+        display: flex;
+        flex-direction: column;
         gap: 80px;
     }
 
     .section {
+        display: grid;
+        grid-template-columns: minmax(230px, 1fr) minmax(0, 2fr);
         column-gap: 20px;
+        align-items: start;
     }
 
-    .section-intro__content {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .section__content {
+        align-self: start;
     }
 
-    .section-reasons__content {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .section-tips__content {
+    .section.section-reasons {
         grid-template-columns: 1fr;
     }
 
+    .section.section-reasons .section__title {
+        max-inline-size: 230px;
+    }
+
+    .section.section-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     .section-gallery__grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        display: grid;
+        grid-template-columns: 229px 230px 229px;
+        gap: 20px;
     }
 
-    /* сетка галереи под макет 1024 */
+    .gallery__item:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
 
-    .section-gallery__grid .gallery__item:nth-child(1) {
-        grid-column: 1 / span 2;
+    .gallery__item:nth-child(2) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 3;
+    }
+
+    .gallery__item:nth-child(3) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 4;
+    }
+
+    .gallery__item:nth-child(4) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .gallery__item:nth-child(5) {
+        grid-column: 2 / 4;
+        grid-row: 3 / 4;
+    }
+    .footer {
+        min-height: 1024px;
+        font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .page {
+        padding-inline: 20px;
+        padding-block: 20px;
+    }
+
+    .header {
+        min-height: 768px;
+        grid-template-rows: 20px auto 273px auto 114px auto;
+    }
+
+    .header__theme-menu {
         grid-row: 1;
+        justify-self: center;
+        align-self: start;
     }
 
-    .section-gallery__grid .gallery__item:nth-child(2) {
-        grid-column: 3;
-        grid-row: 1 / span 2;
+    .header__theme-menu-list {
+        flex-direction: row;
+        gap: 10px;
     }
 
-    .section-gallery__grid .gallery__item:nth-child(3) {
-        grid-column: 2;
-        grid-row: 2;
+    .header__title {
+        grid-row: 4;
     }
 
-    .section-gallery__grid .gallery__item:nth-child(4) {
-        grid-column: 1;
-        grid-row: 2 / span 2;
+    .header__description {
+        grid-row: 6;
+        justify-self: end;
+
     }
 
-    .section-gallery__grid .gallery__item:nth-child(5) {
-        grid-column: 2 / span 2;
-        grid-row: 3;
-    }
 }
