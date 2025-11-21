@@ -1,9 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .page {
     min-block-size: 100vh;
     margin: 0;
