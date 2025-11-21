@@ -2,7 +2,8 @@
     --page-bg-image: url("../images/cover-image-light.png");
     --bg-color: #353430;
     --text-color: #353430;
-    --title-color: #ffc2e6;
+    --primary-title-color: #ffc2e6;
+    --secondary-title-color: #353430;
     --accent-color: #ff8dcb;
     --menu-color: #353430;
     --menu-border-color-hover: #35343066;
@@ -16,18 +17,19 @@
 
 
 @media (prefers-color-scheme: light) {
-    :root.theme-auto {
+    :root{
         --bg-color: #353430;
         --page-bg-image: url("../images/cover-image-light.png");
         --text-color: #353430;
-        --title-color: #ffc2e6;
+        --primary-title-color: #ffc2e6;
+        --secondary-title-color: #353430;
         --accent-color: #ff8dcb;
         --menu-color: #353430;
         --menu-border-color-hover: #35343066;
         --corner-color: #353430;
     }
 
-    :root.theme-auto .rec {
+    :root .rec {
         display: none;
     }
 }

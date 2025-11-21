@@ -1,10 +1,11 @@
 .page {
-    margin: 0;
+    margin: 0 auto;
+    max-inline-size: var(--content-max-width);
+    width: 100%;
     color: var(--text-color);
     font-family: var(--font-main), monospace;
     font-size: var(--font-size-main);
     line-height: var(--line-height-main);
-
     background-color: var(--bg-color);
     background-image: var(--page-bg-image);
     background-repeat: no-repeat;
@@ -65,10 +66,10 @@
 .header__title {
     margin: 0;
     grid-row: 4;
-    color: var(--title-color);
+    color: var(--primary-title-color);
     font-weight: 700;
     text-transform: lowercase;
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: clamp(7.25rem, 0.5625rem + 14.4531vw, 9.8125rem);
     line-height: 0.83;
     text-shadow: 4px 4px 0 var(--accent-color);
 }
@@ -164,7 +165,7 @@ a:focus-visible {
 }
 
 .section__title {
-    color: var(--accent-color);
+    color: var(--secondary-title-color);
     font-weight: 700;
     font-size: 18px;
 }
@@ -256,9 +257,9 @@ h3 {
 }
 
 .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: clamp(7.25rem, 0.5625rem + 14.4531vw, 9.8125rem);
     font-weight: 700;
-    color: var(--title-color);
+    color: var(--primary-title-color);
     text-shadow: 2px 2px 0 var(--accent-color);
 }
 

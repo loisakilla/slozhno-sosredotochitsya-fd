@@ -2,7 +2,8 @@
     --page-bg-image: url("../images/cover-image-dark.png");
     --bg-color: #000028;
     --text-color: #F1B2CE;
-    --title-color: #DB00FF;
+    --primary-title-color: #DB00FF;
+    --secondary-title-color: #ff0070;
     --accent-color: #FF0070;
     --menu-color: #FF0070;
     --menu-border-color-hover: #FF007066;
@@ -10,11 +11,12 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    :root.theme-auto {
+    :root {
         --bg-color: #000028;
         --page-bg-image: url("../images/cover-image-dark.png");
         --text-color: #F1B2CE;
-        --title-color: #DB00FF;
+        --primary-title-color: #DB00FF;
+        --secondary-title-color: #ff0070;
         --accent-color: #FF0070;
         --menu-color: #FF0070;
         --menu-border-color-hover: #FF007066;
