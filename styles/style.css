@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .page {
     min-block-size: 100vh;
     margin: 0;
@@ -377,7 +383,7 @@ h3 {
 
     .header {
         min-height: 100vh;
-        grid-template-rows: 20px auto 273px auto 114px auto;
+        grid-template-rows: 20px auto 273px auto 120px auto;
     }
 
     .header__theme-menu {
@@ -400,6 +406,13 @@ h3 {
         grid-row: 6;
         justify-self: end;
         max-inline-size: 491px;
+    }
+
+    .section {
+        display: grid;
+        grid-template-columns: minmax(230px, 314px) minmax(0, 2fr);
+        column-gap: 20px;
+        align-items: start;
     }
 
     .section.section-reasons {
