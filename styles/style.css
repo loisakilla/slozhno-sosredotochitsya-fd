@@ -290,6 +290,18 @@ h3 {
         justify-self: end;
     }
 
+    .decorated-zone::before {
+        inset-block-start: 20px;
+    }
+
+    .decorated-zone::after {
+        inset-block-end: 20px;
+    }
+
+    .rec {
+        inset-block-start: 20px;
+    }
+
     .main {
         margin-block-start: 60px;
         display: flex;
@@ -360,11 +372,10 @@ h3 {
 
     .page {
         padding-inline: 20px;
-        padding-block: 20px;
     }
 
     .header {
-        min-height: 768px;
+        min-height: 100vhpx;
         grid-template-rows: 20px auto 273px auto 114px auto;
     }
 
