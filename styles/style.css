@@ -375,7 +375,7 @@ h3 {
     }
 
     .header {
-        min-height: 100vhpx;
+        min-height: 100vh;
         grid-template-rows: 20px auto 273px auto 114px auto;
     }
 
