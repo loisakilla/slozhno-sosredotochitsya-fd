@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .page {
     min-block-size: 100vh;
     margin: 0;
@@ -23,7 +29,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 65px auto 65px auto 55px auto;
     align-content: start;
-    min-height: 668px;
+    min-height: 658px;
 }
 
 .header__theme-menu {
@@ -133,6 +139,10 @@ a:focus-visible {
     text-transform: uppercase;
     color: var(--menu-color);
     padding-right: 9px;
+    display:flex;
+    gap:10px;
+    align-items: center;
+    min-height: 26px;
 }
 
 .rec::after {
@@ -140,7 +150,7 @@ a:focus-visible {
     display: inline-block;
     inline-size: 9px;
     block-size: 9px;
-    margin-inline-start: 10px;
+
     border-radius: 50%;
     background-color: var(--accent-color);
     box-shadow: 0 0 4px 2px var(--accent-color);

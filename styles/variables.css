@@ -1,24 +1,20 @@
 :root {
-    /* Цвета */
     --bg-color: #000028;
     --accent-color: #ff0070;
     --text-color: #f1b2ce;
     --title-color: #DB00FF;
     --menu-color: #ff0070;
-    --menu-border-color-hover: rgba(255, 0, 112, 0.4);
+    --menu-border-color-hover: #ff007066;
     --corner-color: #ff0070;
 
-    /* Шрифт */
     --font-main: "IBM Plex Mono", monospace;
     --font-size-main: 18px;
     --line-height-main: 23.4px;
 
-    /* Отступы / ширина контейнера */
     --page-padding-inline: 10px;
     --page-padding-block: 10px;
     --content-max-width: 1024px;
 
-    /* Фоновой рисунок страницы */
     --page-bg-image: url("../images/cover-image-dark.png");
 }
 

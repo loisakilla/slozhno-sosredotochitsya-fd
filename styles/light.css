@@ -1,12 +1,6 @@
-/*
-  Специально для светлой темы.
-  Здесь переопределяем только те переменные,
-  которые отличаются от тёмной темы.
-*/
-
 :root.theme-light {
-    --bg-color: #353430;
     --page-bg-image: url("../images/cover-image-light.png");
+    --bg-color: #353430;
     --text-color: #353430;
     --title-color: #ffc2e6;
     --accent-color: #ff8dcb;
