@@ -365,6 +365,7 @@ h3 {
     }
     .footer {
         min-height: 100vh;
+        margin-block-start: 60px;
     }
 }
 
@@ -406,13 +407,14 @@ h3 {
     }
 
     .section.section-reasons .section__title {
-        max-inline-size: none;
+        max-inline-size: 315px;
     }
 
     .section-reasons__content {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         column-gap: 20px;
+        align-items: start;
     }
 
     .content-card__title.title-decor {
